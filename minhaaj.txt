@@ -15,12 +15,12 @@ Step 3 : Build image locally
 docker build \
   --build-arg=FRAPPE_PATH=https://github.com/frappe/frappe \
   --build-arg=FRAPPE_BRANCH=version-15 \
-  --build-arg=PYTHON_VERSION=3.10.12 \
-  --build-arg=NODE_VERSION=18.17.0 \
+  --build-arg=PYTHON_VERSION=3.11.9 \
+  --build-arg=NODE_VERSION=18.20.2 \
   --build-arg=APPS_JSON_BASE64=$APPS_JSON_BASE64 \
-  --tag=frappe/erpnext:custom_apps \
-  --file=images/custom/Containerfile .
+  --tag=frappe/erpnext:school \
+  --file=images/layered/Containerfile .
 
 Step 4 : Run docker compose
 -------------------------------------------------  
-docker compose -f pwd_custom.yml up
+docker compose -f pwd_custom.yml up -d
